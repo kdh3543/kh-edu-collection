@@ -1,0 +1,15 @@
+package Practice_Day_1;
+
+import java.util.Scanner;
+
+public class Num_11_Multiple2 {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int a = (int)((Math.random()*900)+100);
+		int b = sc.nextInt();
+		System.out.println(a);
+		
+	}
+
+}

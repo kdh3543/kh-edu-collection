@@ -1,0 +1,18 @@
+package Practice_Day_1;
+
+import java.util.Scanner;
+
+public class Num_11_Multiple2 {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		
+		int c = 6574;
+		
+		while(c != 0) {
+			System.out.printf("%d", c%10);
+			c /= 10;
+		}
+	}
+
+}

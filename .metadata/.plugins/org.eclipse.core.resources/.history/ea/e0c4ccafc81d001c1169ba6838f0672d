@@ -1,0 +1,21 @@
+package Practice_Day_1;
+
+import java.util.Scanner;
+
+public class Num_11_Multiple2 {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int a = sc.nextInt();
+		int b = sc.nextInt();
+		
+		while(b != 0) {
+			System.out.println(a * (b%10));
+			
+			System.out.println();
+			b /= 10;
+			
+		}
+	}
+
+}

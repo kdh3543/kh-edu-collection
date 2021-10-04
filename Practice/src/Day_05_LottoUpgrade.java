@@ -1,0 +1,91 @@
+public class Day_05_LottoUpgrade {
+
+	public static void main(String[] args) {
+		int[] lotto = new int[45];
+		int[] rcd = new int[45];
+		int t = 0;
+		int sec = 0;
+		int thd = 0;
+		int four = 0;
+		int fifth = 0;
+		System.out.println("¿À´ÃÀÇ ·Î¶Ç ¹øÈ£ ÃßÃµ ÇÁ·Î±×·¥");
+		for(;;) {
+			
+			t++;
+			for(int i =0;i<lotto.length;i++) {
+				lotto[i] = i+1;
+			}
+
+			for(int i = 0; i<lotto.length*100;i++) {
+				int x = (int)(Math.random()*45);
+				int y = (int)(Math.random()*45);
+
+				int tmp = lotto[x];
+				lotto[x] = lotto[y];
+				lotto[y] = tmp;
+			}
+
+			for(int i = 0; i<rcd.length;i++) {
+				rcd[i] = i+1;
+			}
+
+			for(int i = 0; i<rcd.length;i++) {
+				int x = (int)(Math.random()*45);
+				int y = (int)(Math.random()*45);
+
+				int tmp = rcd[x];
+				rcd[x] = rcd[y];
+				rcd[y] = tmp;
+			}
+
+			System.out.print(t+" ¹øÂ° ·Î¶Ç ÃßÃ· ¹øÈ£: ");
+			for(int i = 0;i<6;i++) {
+				System.out.print(rcd[i] + " ");
+			}
+			int bonus = 0;
+			int count = 0;
+			for(int i = 0;i<6;i++) {
+				for(int j = 0;j<6;j++) {
+					if(rcd[j] == lotto[i]) {
+						count++;
+					}
+					if(rcd[j]==lotto[6]) {
+						bonus++;
+					}
+				}
+			}
+
+			System.out.print("\t");	
+			if(count==6) {
+				System.out.print("´çÃ·ÀÔ´Ï´Ù.");
+				break;
+			}else if(count==5&&bonus==1) {
+				System.out.print("2µîÀÔ´Ï´Ù.");
+				sec++;
+			}else if(count==5) {
+				System.out.print("3µîÀÔ´Ï´Ù.");
+				thd++;
+			}else if(count==4) {
+				System.out.print("4µîÀÔ´Ï´Ù.");
+				four++;
+			}else if(count==3) {
+				System.out.print("3µîÀÔ´Ï´Ù.");
+				fifth++;
+			}else {
+				System.out.print("´çÃ·µÇÁö ¸øÇß½À´Ï´Ù.");
+			}
+			System.out.println();
+		}
+		System.out.println();
+		System.out.print("·Î¶Ç ´çÃ· ¹øÈ£: ");
+		for(int i = 0; i<6;i++) {
+			System.out.print(lotto[i] + " ");
+		}
+		System.out.println();
+		System.out.println("7¹øÂ° º¸³Ê½º ¹øÈ£: " + lotto[6]);
+		System.out.println("2µî ´çÃ· È½¼ö: "+sec + " ´çÃ· È®·ü: " + (double)sec/t);
+		System.out.println("3µî ´çÃ· È½¼ö: "+thd + " ´çÃ· È®·ü: " + (double)thd/t);
+		System.out.println("4µî ´çÃ· È½¼ö: "+four + " ´çÃ· È®·ü: " + (double)four/t);
+		System.out.println("5µî ´çÃ· È½¼ö: "+fifth + " ´çÃ· È®·ü: " + (double)fifth/t);
+	}
+}

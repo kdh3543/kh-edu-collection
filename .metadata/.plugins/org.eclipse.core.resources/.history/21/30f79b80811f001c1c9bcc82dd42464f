@@ -1,0 +1,10 @@
+package practice_day_3;
+
+public class Num5_Nprint {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}
